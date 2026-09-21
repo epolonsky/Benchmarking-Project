@@ -38,7 +38,8 @@ git clone https://github.com/davidemms/SHOOT
 
 run using the same test data as for orthofinder
 
-this is currently not working on this test data we are working on it to see why
+SHOOT only takes in one fasta sequence at a time (need to make a bash loop to run through a multi fasta file and input each fasta sequence individually)
+we are working on fixing this
 
 ```bash
 conda activate of3_env
