@@ -39,6 +39,7 @@ Orthofinder was installed through a conda environment
 conda create -n of3_env python=3.12
 conda activate of3_env
 conda install -c conda-forge -c bioconda orthofinder
+conda install numpy=1.26.4
 ```
 
 # OrthoLoger
