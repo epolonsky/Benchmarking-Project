@@ -30,6 +30,23 @@ The following python dependencies were installed for this tool:
 * pytest
 * six
 
+clone the SHOOT github repo
+
+```
+git clone https://github.com/davidemms/SHOOT
+```
+
+run using the same test data as for orthofinder
+
+```bash
+conda activate of3_env
+orthofinder -f orthofinder_test_data/ -M msa -o shoot_test_data
+PYTHONPATH="$PWD/SHOOT" python SHOOT/shoot/create_shoot_db.py shoot_test_data/Results_Sep21 full
+PYTHONPATH="$PWD/SHOOT" python SHOOT/shoot/bifurcating_trees.py shoot_test_data/Results_Sep21
+ln -s profile_sequences.all.fa.db.dmnd shoot_test_data/Results_Sep21/diamond_profile_sequences.fa.db.dmnd
+PYTHONPATH="$PWD/SHOOT:$PWD/SHOOT/shoot" python -m shoot orthofinder_test_data/Mycoplasma_agalactiae.faa shoot_test_data/Results_Sep21/
+```
+
 # Orthofinder
 https://orthofinder.github.io/OrthoFinder/
 
@@ -45,6 +62,7 @@ conda install numpy=1.26.4
 run test data
 
 ```bash
+conda activate of3_env
 orthofinder -f orthofinder_test_data/
 ```
 
