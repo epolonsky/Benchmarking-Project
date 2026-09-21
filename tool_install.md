@@ -13,7 +13,7 @@ conda install -c conda-forge -c bioconda diamond
 conda install -c bioconda mafft
 ```
 
-3.gappa
+3. gappa
 ```bash
 conda install -c bioconda gappa
 ```
