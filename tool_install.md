@@ -42,6 +42,12 @@ conda install -c conda-forge -c bioconda orthofinder
 conda install numpy=1.26.4
 ```
 
+run test data
+
+```bash
+orthofinder -f orthofinder_test_data/
+```
+
 # OrthoLoger
 https://orthologer.ezlab.org/
 
@@ -56,6 +62,13 @@ conda install -c conda-forge -c bioconda orthologer
 
 ```bash
 conda create -n proteinortho_env -c conda-forge -c bioconda python=3.7 proteinortho
+```
+
+run test data
+
+```bash
+conda activate proteinortho_env
+perl proteinortho6.pl -project= proteinortho_test_data/ proteinortho_test_data/C.faa proteinortho_test_data/E.faa proteinortho_test_data/L.faa proteinortho_test_data/M.faa
 ```
 
 
