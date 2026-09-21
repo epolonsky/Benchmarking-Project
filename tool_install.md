@@ -38,6 +38,8 @@ git clone https://github.com/davidemms/SHOOT
 
 run using the same test data as for orthofinder
 
+this is currently not working on this test data we are working on it to see why
+
 ```bash
 conda activate of3_env
 orthofinder -f orthofinder_test_data/ -M msa -o shoot_test_data
