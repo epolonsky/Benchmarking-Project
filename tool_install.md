@@ -80,6 +80,7 @@ conda install -c conda-forge -c bioconda orthologer
 ```
 
 # proteinortho
+https://gitlab.com/paulklemm_PHD/proteinortho/-/tree/master?ref_type=heads
 
 ```bash
 conda create -n proteinortho_env -c conda-forge -c bioconda python=3.7 proteinortho
