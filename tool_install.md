@@ -50,6 +50,33 @@ ln -s profile_sequences.all.fa.db.dmnd shoot_test_data/Results_Sep21/diamond_pro
 PYTHONPATH="$PWD/SHOOT:$PWD/SHOOT/shoot" python -m shoot orthofinder_test_data/Mycoplasma_agalactiae.faa shoot_test_data/Results_Sep21/
 ```
 
+# Sonicparanoid2
+
+Sonicparanoid2 was installed using pixi
+
+```bash
+wget -qO- https://pixi.sh/install.sh | sh
+source ~/.bashrc
+pixi init
+pixi workspace channel add conda-forge
+pixi workspace channel add bioconda
+pixi global install -c conda-forge -c bioconda sonicparanoid
+pixi add mmseqs2
+pixi shell
+```
+run test data
+working on fixing it
+
+```bash
+sonicparanoid-get-test-data -o sonicparanoid_test_data
+cd sonicparanoid_test_data/sonicparanoid_test/
+sonicparanoid -i ./test_input -o ./test_output --project-id my_first_run -t 4
+
+mkdir -p sonicparanoid_test_data/pfam_profiles
+sonicparanoid-get-profiles -o sonicparanoid_test_data/pfam_profiles
+sonicparanoid -i sonicparanoid_test_data/sonicparanoid_test/test_input -o sonicparanoid_test_data/test_data_ouput
+```
+
 # Orthofinder
 https://orthofinder.github.io/OrthoFinder/
 
