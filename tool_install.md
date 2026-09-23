@@ -68,6 +68,12 @@ pixi add --pypi sonicparanoid
 run test data
 working on fixing it
 
+Download the archive sonicparanoid2_pfam_mmseqs_profile_db.tar.gz from
+
+https://drive.google.com/file/d/1eV3t2FINOUPJI1132w3bmBrHnO3_bpfJ/view?usp=sharing
+
+NOTE: it is about 4 gigabytes so it might take some time to download
+
 ```bash
 pixi run sonicparanoid-get-test-data -o sonicparanoid_test_data
 cd sonicparanoid_test_data/sonicparanoid_test/
