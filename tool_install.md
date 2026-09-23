@@ -77,6 +77,8 @@ NOTE: it is about 4 gigabytes so it might take some time to download
 ```bash
 pixi run sonicparanoid-get-test-data -o sonicparanoid_test_data
 cd sonicparanoid_test_data/sonicparanoid_test/
+mkdir -p /home/epolonsky/benchmarking_project/.pixi/envs/default/lib/python3.10/site-packages/sonicparanoid/pfam_files/profile_db/
+tar -xzf sonicparanoid2_pfam_mmseqs_profile_db.tar.gz -C /home/epolonsky/benchmarking_project/.pixi/envs/default/lib/python3.10/site-packages/sonicparanoid/pfam_files/profile_db/
 pixi run sonicparanoid-get-profiles -o /home/epolonsky/benchmarking_project/.pixi/envs/default/lib/python3.10/site-packages/sonicparanoid/pfam_files/profile_db/
 pixi run sonicparanoid -i ./test_input -o ./test_output --project-id my_first_run -t 4 
 ```
