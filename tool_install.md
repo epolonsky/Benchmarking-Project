@@ -61,7 +61,13 @@ pixi init
 pixi workspace channel add conda-forge
 pixi workspace channel add bioconda
 pixi global install -c conda-forge -c bioconda sonicparanoid
-pixi add mmseqs2
+pixi add "mmseqs2=15.6f452"
+sonicparanoid-get-profiles -o /home/epolonsky/.pixi/envs/sonicparanoid/lib/python3.12/site-packages/sonicparanoid/pfam_files/profile_db
+PFAM_DIR=/home/epolonsky/.pixi/envs/sonicparanoid/lib/python3.12/site-packages/sonicparanoid/pfam_files
+PROFILE_DIR="$PFAM_DIR/profile_db"
+rm -rf "$PROFILE_DIR"
+mkdir -p "$PROFILE_DIR"
+tar -xzf "$PFAM_DIR/pfama-mmseqs.tar.gz" -C "$PROFILE_DIR"
 pixi shell
 ```
 run test data
@@ -70,11 +76,7 @@ working on fixing it
 ```bash
 sonicparanoid-get-test-data -o sonicparanoid_test_data
 cd sonicparanoid_test_data/sonicparanoid_test/
-sonicparanoid -i ./test_input -o ./test_output --project-id my_first_run -t 4
-
-mkdir -p sonicparanoid_test_data/pfam_profiles
-sonicparanoid-get-profiles -o sonicparanoid_test_data/pfam_profiles
-sonicparanoid -i sonicparanoid_test_data/sonicparanoid_test/test_input -o sonicparanoid_test_data/test_data_ouput
+sonicparanoid -i ./test_input -o ./test_output --project-id my_first_run -t 4 
 ```
 
 # Orthofinder
