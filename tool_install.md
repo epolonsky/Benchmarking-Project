@@ -57,26 +57,22 @@ Sonicparanoid2 was installed using pixi
 ```bash
 wget -qO- https://pixi.sh/install.sh | sh
 source ~/.bashrc
+cd ~/benchmarking_project
 pixi init
 pixi workspace channel add conda-forge
 pixi workspace channel add bioconda
-pixi global install -c conda-forge -c bioconda sonicparanoid
-pixi add "mmseqs2=15.6f452"
-sonicparanoid-get-profiles -o /home/epolonsky/.pixi/envs/sonicparanoid/lib/python3.12/site-packages/sonicparanoid/pfam_files/profile_db
-PFAM_DIR=/home/epolonsky/.pixi/envs/sonicparanoid/lib/python3.12/site-packages/sonicparanoid/pfam_files
-PROFILE_DIR="$PFAM_DIR/profile_db"
-rm -rf "$PROFILE_DIR"
-mkdir -p "$PROFILE_DIR"
-tar -xzf "$PFAM_DIR/pfama-mmseqs.tar.gz" -C "$PROFILE_DIR"
-pixi shell
+pixi add python=3.10
+pixi add mmseqs2=15.6f452
+pixi add --pypi sonicparanoid
 ```
 run test data
 working on fixing it
 
 ```bash
-sonicparanoid-get-test-data -o sonicparanoid_test_data
+pixi run sonicparanoid-get-test-data -o sonicparanoid_test_data
 cd sonicparanoid_test_data/sonicparanoid_test/
-sonicparanoid -i ./test_input -o ./test_output --project-id my_first_run -t 4 
+pixi run sonicparanoid-get-profiles -o /home/epolonsky/benchmarking_project/.pixi/envs/default/lib/python3.10/site-packages/sonicparanoid/pfam_files/profile_db/
+pixi run sonicparanoid -i ./test_input -o ./test_output --project-id my_first_run -t 4 
 ```
 
 # Orthofinder
