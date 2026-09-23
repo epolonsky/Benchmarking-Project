@@ -1,58 +1,8 @@
-# SHOOT
-https://github.com/davidemms/SHOOT
-
-The following dependencies were installed for this tool:
-
-1. DIAMOND
-```bash
-conda install -c conda-forge -c bioconda diamond
-````
-
-2. MAFFT
-```bash
-conda install -c bioconda mafft
-```
-
-3. gappa
-```bash
-conda install -c bioconda gappa
-```
-
-4. epa-ng
-```bash
-conda install -c bioconda epa-ng
-```
-
-The following python dependencies were installed for this tool:
-* ete3
-* scikit-learn
-* biopython
-* pytest
-* six
-
-clone the SHOOT github repo
-
-```
-git clone https://github.com/davidemms/SHOOT
-```
-
-run using the same test data as for orthofinder
-
-SHOOT only takes in one fasta sequence at a time (need to make a bash loop to run through a multi fasta file and input each fasta sequence individually)
-we are working on fixing this
-
-```bash
-conda activate of3_env
-orthofinder -f orthofinder_test_data/ -M msa -o shoot_test_data
-PYTHONPATH="$PWD/SHOOT" python SHOOT/shoot/create_shoot_db.py shoot_test_data/Results_Sep21 full
-PYTHONPATH="$PWD/SHOOT" python SHOOT/shoot/bifurcating_trees.py shoot_test_data/Results_Sep21
-ln -s profile_sequences.all.fa.db.dmnd shoot_test_data/Results_Sep21/diamond_profile_sequences.fa.db.dmnd
-PYTHONPATH="$PWD/SHOOT:$PWD/SHOOT/shoot" python -m shoot orthofinder_test_data/Mycoplasma_agalactiae.faa shoot_test_data/Results_Sep21/
-```
-
 # Sonicparanoid2
 
 Sonicparanoid2 was installed using pixi
+
+we did not use the mmsqs2 function of this tool as it was incompatible with the CPU on the server it required AVX2 and we only had AVX1. This was done using the --graph-only flag.
 
 ```bash
 wget -qO- https://pixi.sh/install.sh | sh
@@ -62,25 +12,14 @@ pixi init
 pixi workspace channel add conda-forge
 pixi workspace channel add bioconda
 pixi add python=3.10
-pixi add mmseqs2=15.6f452
 pixi add --pypi sonicparanoid
 ```
 run test data
-working on fixing it
-
-Download the archive sonicparanoid2_pfam_mmseqs_profile_db.tar.gz from
-
-https://drive.google.com/file/d/1eV3t2FINOUPJI1132w3bmBrHnO3_bpfJ/view?usp=sharing
-
-NOTE: it is about 4 gigabytes so it might take some time to download
 
 ```bash
 pixi run sonicparanoid-get-test-data -o sonicparanoid_test_data
 cd sonicparanoid_test_data/sonicparanoid_test/
-mkdir -p /home/epolonsky/benchmarking_project/.pixi/envs/default/lib/python3.10/site-packages/sonicparanoid/pfam_files/profile_db/
-tar -xzf sonicparanoid2_pfam_mmseqs_profile_db.tar.gz -C /home/epolonsky/benchmarking_project/.pixi/envs/default/lib/python3.10/site-packages/sonicparanoid/pfam_files/profile_db/
-pixi run sonicparanoid-get-profiles -o /home/epolonsky/benchmarking_project/.pixi/envs/default/lib/python3.10/site-packages/sonicparanoid/pfam_files/profile_db/
-pixi run sonicparanoid -i ./test_input -o ./test_output --project-id my_first_run -t 4 
+pixi run sonicparanoid -i ./test_input -o ./test_output --project-id my_first_run -t 4 --graph-only
 ```
 
 # Orthofinder
