@@ -22,6 +22,9 @@ cd sonicparanoid_test_data/sonicparanoid_test/
 pixi run sonicparanoid -i ./test_input -o ./test_output --project-id my_first_run -t 4 --graph-only
 ```
 
+problem we were having before (in case we want to try to fit it again)
+https://gitlab.com/salvo981/sonicparanoid2/-/work_items/54
+
 # Orthofinder
 https://orthofinder.github.io/OrthoFinder/
 
@@ -45,14 +48,24 @@ orthofinder -f orthofinder_test_data/
 https://orthologer.ezlab.org/
 
 https://bioconda.github.io/recipes/orthologer/README.html
-
-This is not currently working - will try to install through docker maybe
+ 
+ OrthoLoger was installed using pixi
+ 
 ```bash
-conda install -c conda-forge -c bioconda orthologer
+pixi add python=3.12 "numpy<2" "scipy<1.13" "orthologer=3.9.1"
+```
+
+run test data
+working on it 
+
+```bash
+
 ```
 
 # proteinortho
 https://gitlab.com/paulklemm_PHD/proteinortho/-/tree/master?ref_type=heads
+
+proteinortho was installed through a conda environment
 
 ```bash
 conda create -n proteinortho_env -c conda-forge -c bioconda python=3.7 proteinortho
