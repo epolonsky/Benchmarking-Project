@@ -71,11 +71,11 @@ In the command above, replace:
 
 OrthoLoger writes the test output to the test installation directory:
 
-**`/home/epolonsky/benchmarking_project/.pixi/envs/default/ORTHOLOGER-3.9.1/test/tests/prot/'**
+**`/home/epolonsky/benchmarking_project/.pixi/envs/default/ORTHOLOGER-3.9.1/test/tests/prot/`**
 
 The run log is stored in:
 
-**'/home/epolonsky/benchmarking_project/.pixi/envs/default/ORTHOLOGER-3.9.1/test/tests/prot/RunLogs/'**
+**`/home/epolonsky/benchmarking_project/.pixi/envs/default/ORTHOLOGER-3.9.1/test/tests/prot/RunLogs/`**
 
 To copy the generated test data into the project directory
 
