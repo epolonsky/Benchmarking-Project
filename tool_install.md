@@ -85,6 +85,22 @@ conda activate proteinortho_env
 perl proteinortho6.pl -project= proteinortho_test_data/ proteinortho_test_data/C.faa proteinortho_test_data/E.faa proteinortho_test_data/L.faa proteinortho_test_data/M.faa
 ```
 
+OrthoLoger writes the test output to the test installation directory:
+
+**`/home/epolonsky/benchmarking_project/.pixi/envs/default/ORTHOLOGER-3.9.1/test/tests/prot/'**
+
+The run log is stored in:
+
+**'/home/epolonsky/benchmarking_project/.pixi/envs/default/ORTHOLOGER-3.9.1/test/tests/prot/RunLogs/'**
+
+To copy the generated test data into the project directory
+
+```bash
+cd ~/benchmarking_project
+mkdir orthologer_test_data
+cp -r /home/epolonsky/benchmarking_project/.pixi/envs/default/ORTHOLOGER-3.9.1/test/tests/prot/* orthologer_test_data/
+```
+
 
 
 
