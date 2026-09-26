@@ -53,14 +53,21 @@ https://bioconda.github.io/recipes/orthologer/README.html
  
 ```bash
 pixi add python=3.12 "numpy<2" "scipy<1.13" "orthologer=3.9.1"
+pixi add requests
 ```
 
 run test data
-working on it 
+
+change the paths below to match the location of your OrthoLoger installation and project directory
 
 ```bash
-
+pixi run bash -c 'export PATH="$CONDA_PREFIX/bin:$PATH" /home/epolonsky/benchmarking_project/.pixi/envs/default/ORTHOLOGER-3.9.1/test/run_test.sh prot/main'
 ```
+
+In the command above, replace:
+
+- **`/home/epolonsky/benchmarking_project`** with the path to your own project directory
+- **`.pixi/envs/default/ORTHOLOGER-3.9.1`** with the location of your OrthoLoger installation, if different
 
 # proteinortho
 https://gitlab.com/paulklemm_PHD/proteinortho/-/tree/master?ref_type=heads
