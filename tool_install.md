@@ -69,22 +69,6 @@ In the command above, replace:
 - **`/home/epolonsky/benchmarking_project`** with the path to your own project directory
 - **`.pixi/envs/default/ORTHOLOGER-3.9.1`** with the location of your OrthoLoger installation, if different
 
-# proteinortho
-https://gitlab.com/paulklemm_PHD/proteinortho/-/tree/master?ref_type=heads
-
-proteinortho was installed through a conda environment
-
-```bash
-conda create -n proteinortho_env -c conda-forge -c bioconda python=3.7 proteinortho
-```
-
-run test data
-
-```bash
-conda activate proteinortho_env
-perl proteinortho6.pl -project= proteinortho_test_data/ proteinortho_test_data/C.faa proteinortho_test_data/E.faa proteinortho_test_data/L.faa proteinortho_test_data/M.faa
-```
-
 OrthoLoger writes the test output to the test installation directory:
 
 **`/home/epolonsky/benchmarking_project/.pixi/envs/default/ORTHOLOGER-3.9.1/test/tests/prot/'**
@@ -101,6 +85,20 @@ mkdir orthologer_test_data
 cp -r /home/epolonsky/benchmarking_project/.pixi/envs/default/ORTHOLOGER-3.9.1/test/tests/prot/* orthologer_test_data/
 ```
 
+# proteinortho
+https://gitlab.com/paulklemm_PHD/proteinortho/-/tree/master?ref_type=heads
 
+proteinortho was installed through a conda environment
+
+```bash
+conda create -n proteinortho_env -c conda-forge -c bioconda python=3.7 proteinortho
+```
+
+run test data
+
+```bash
+conda activate proteinortho_env
+perl proteinortho6.pl -project= proteinortho_test_data/ proteinortho_test_data/C.faa proteinortho_test_data/E.faa proteinortho_test_data/L.faa proteinortho_test_data/M.faa
+```
 
 
