@@ -60,14 +60,14 @@ run test data
 
 change the paths below to match the location of your OrthoLoger installation and project directory
 
-```bash
-pixi run bash -c 'export PATH="$CONDA_PREFIX/bin:$PATH" /home/epolonsky/benchmarking_project/.pixi/envs/default/ORTHOLOGER-3.9.1/test/run_test.sh prot/main'
-```
-
-In the command above, replace:
+In the command below, replace:
 
 - **`/home/epolonsky/benchmarking_project`** with the path to your own project directory
 - **`.pixi/envs/default/ORTHOLOGER-3.9.1`** with the location of your OrthoLoger installation, if different
+
+```bash
+pixi run bash -c 'export PATH="$CONDA_PREFIX/bin:$PATH" /home/epolonsky/benchmarking_project/.pixi/envs/default/ORTHOLOGER-3.9.1/test/run_test.sh prot/main'
+```
 
 OrthoLoger writes the test output to the test installation directory:
 
@@ -77,7 +77,7 @@ The run log is stored in:
 
 **`/home/epolonsky/benchmarking_project/.pixi/envs/default/ORTHOLOGER-3.9.1/test/tests/prot/RunLogs/`**
 
-To copy the generated test data into the project directory
+To copy the generated test data into the project directory:
 
 ```bash
 cd ~/benchmarking_project
